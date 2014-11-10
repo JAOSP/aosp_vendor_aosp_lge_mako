@@ -19,6 +19,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.est_max_time=600 \
     ro.facelock.use_intro_anim=false
 
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage10.mk)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf:lge
+
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage13.mk)
 
 $(call inherit-product, $(LOCAL_PATH)/device-mako.mk)
