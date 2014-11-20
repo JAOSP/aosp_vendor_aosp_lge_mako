@@ -1,11 +1,11 @@
 #!/bin/bash
-echo "Please wait."
-wget -nc -q https://dl.google.com/dl/android/aosp/occam-ktu84p-factory-b6ac3ad6.tgz
-tar zxf occam-ktu84p-factory-b6ac3ad6.tgz
-cd occam-ktu84p
-unzip image-occam-ktu84p.zip
+echo "Please wait..."
+wget -nc -q https://dl.google.com/dl/android/aosp/occam-lrx21t-factory-51cee750.tgz
+tar zxf occam-lrx21t-factory-51cee750.tgz
+cd occam-lrx21t
+unzip image-occam-lrx21t.zip
 cd ../
-./simg2img occam-ktu84p/system.img system.ext4.img
+./simg2img occam-lrx21t/system.img system.ext4.img
 mkdir system
 mkdir tmp
 sudo mount -o loop -t ext4 system.ext4.img tmp
@@ -39,9 +39,6 @@ cp -a tmp/etc/DxHDCP.cfg system/etc/DxHDCP.cfg
 cp -a tmp/etc/audio_effects.conf system/etc/audio_effects.conf
 cp -a tmp/lib/libDxHdcp.so system/lib/libDxHdcp.so
 cp -a tmp/lib/soundfx/libfmas.so system/lib/soundfx/libfmas.so
-cp -a tmp/lib/libgcastv2_base.so system/lib/libgcastv2_base.so
-cp -a tmp/lib/libgcastv2_support.so system/lib/libgcastv2_support.so
-cp -a tmp/lib/libjgcastservice.so system/lib/libjgcastservice.so
 cp -a tmp/lib/libjhead.so system/lib/libjhead.so
 cp -a tmp/lib/libjhead_jni.so system/lib/libjhead_jni.so
 cp -a tmp/media/bootanimation.zip system/media/bootanimation.zip
@@ -50,5 +47,5 @@ cp -a tmp/media/audio/ringtones/SpagnolaOrchestration.ogg system/media/audio/rin
 
 sudo umount tmp
 rm -rf tmp
-rm -rf occam-ktu84p
+rm -rf occam-lrx21t
 rm system.ext4.img
